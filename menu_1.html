@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>Menu 1</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+  <style>
+  body{
+    padding: 0;
+    margin: 0;
+    font-family: Verdana,sans-serif;
+  }
+  #menu{
+    position: absolute;
+    top: 0;
+    right:0;
+    color: #fff;
+    background: #4c81e0;
+    padding: 8px;
+    box-sizing: border-box;
+    width: 180px;
+    min-height: 100%;
+  }
+  #main{
+    z-index: 1;
+    background: #eee;
+    position: absolute;
+    top: 0;   /*　左上にくっつける感じ*/
+    left: 0;
+    color: #333;
+    padding: 8px;
+    box-sizing: border-box;  /* ボックスサイズの算出方法　paddingとborderを幅と高さに含める*/
+    width: 100%;
+    height: 100%;
+    overflow: auto;  /*はみ出た内容の表示方法をブラウザに指定する*/
+    transition: .4s;
+  }
+  #main.menu-open{
+    left: -180px;
+  }
+  #show{
+    float: right;
+    cursor: pointer;
+  }
+  </style>
+</head>
+<body>
+  <div id="menu">
+    <ul>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+  </div><!-- menu -->
+
+  <div id="main">
+    <i class="fa fa-bars" id="show"></i>
+    <h1>Hello</h1>
+    <p>hello world. hello world. hello world. hello world. hello world. hello world. hello world. hello world. hello world.
+    hello world. hello world. hello world. hello world. hello world. hello world. hello world. hello world. hello world. hello world.
+    hello world. hello world. hello world. hello world. hello world. hello world. hello world. hello world. hello world. hello world.</p>
+    <p>hello world. hello world. hello world. hello world. hello world. hello world. hello world. hello world. hello world. hello world. hello world. hello world.
+    hello world. hello world. hello world. hello world. hello world. hello world. hello world. hello world. hello world. hello world. hello world. </p>
+    hello world. hello world. hello world. hello world. hello world. hello world. hello world. hello world. hello world.
+    <p>hello world. hello world. hello world. hello world. hello world. hello world. hello world. hello world. hello world.
+    hello world. hello world. hello world. hello world. hello world. hello world. hello world. hello world. hello world. </p>
+  </div><!-- main -->
+  <script>
+  (function(){
+    'use strict';
+
+    var show = document.getElementById('show');
+    var main = document.getElementById('main');
+
+    show.addEventListener('click',function(){  //showをクリックした時のイベント
+      if(main.className === 'menu-open'){   //もし#mainに対して.menu-openがついていたならば.menu-oopenを外す、そうでなかっtらつける！
+        main.className = '';  //mainに.menu-openが付いていたらはずす
+      }else {
+        main.className = 'menu-open';//ついていなかったらつける
+      }
+      //main.className = main.className === 'menu-open' ? '' : 'menu-open';
+      //条件演算子
+    });
+  })();
+  </script>
+</body>
+</html>
